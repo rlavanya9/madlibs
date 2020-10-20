@@ -15,6 +15,7 @@ AWESOMENESS = [
 ]
 
 
+
 @app.route('/')
 def start_here():
     """Display homepage."""
@@ -40,6 +41,24 @@ def greet_person():
     return render_template("compliment.html",
                            person=player,
                            compliment=compliment)
+
+@app.route('/game')
+def show_madlib_form():
+    game_answer = request.args.get('answer')
+    if game_answer == 'no':
+        return render_template("goodbye.html")
+    else:
+        return render_template("game.html")
+
+@app.route('/madlib')
+def show_madlib():
+    person = request.args.get("person")
+    color = request.args.get("color")
+    noun = request.args.get("noun")
+    adjective = request.args.get("adjective")
+    madlib_list = ["madlib.html","madlib2.html","madlib3.html"]
+    which_madlib = choice(madlib_list)
+    return render_template(which_madlib,person=person, color=color, noun=noun, adjective=adjective)
 
 
 if __name__ == '__main__':

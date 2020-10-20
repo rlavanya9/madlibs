@@ -1,0 +1,10 @@
+body {
+    background-image: url("/static/img/halloween-background.png");
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    color: #fff;
+    text-align: center;
+    text-shadow:none;
+    box-shadow:none;
+  }
